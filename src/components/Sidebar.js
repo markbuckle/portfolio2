@@ -1,0 +1,108 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { HashLink as Link } from 'react-router-hash-link';
+import {
+  Home, User, Palette, Layers, Code2, Mail,
+  ChevronRight, ChevronLeft, FileDown
+} from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+const navItems = [
+  { icon: <Home size={18} />, name: 'Home', to: '#home' },
+  { icon: <User size={18} />, name: 'About', to: '#about' },
+  { icon: <Palette size={18} />, name: 'Design', to: '#design' },
+  { icon: <Layers size={18} />, name: 'Skills', to: '#skills' },
+  { icon: <Code2 size={18} />, name: 'Projects', to: '#projects' },
+  { icon: <Mail size={18} />, name: 'Contact', to: '#contact' },
+];
+
+const SidebarItem = ({ icon, name, to, isOpen }) => (
+  <Link smooth to={to} className="sidebar-link">
+    <div className="sidebar-item">
+      <span className="sidebar-item-icon">{icon}</span>
+      {isOpen && (
+        <motion.span
+          className="sidebar-item-label"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.15 }}
+        >
+          {name}
+        </motion.span>
+      )}
+    </div>
+  </Link>
+);
+
+export const Sidebar = ({ isOpen, setIsOpen }) => {
+  const variants = {
+    open: { width: 'var(--sidebar-width-open)', transition: { duration: 0.3, ease: 'easeInOut' } },
+    closed: { width: 'var(--sidebar-width-closed)', transition: { duration: 0.3, ease: 'easeInOut' } },
+  };
+
+  return (
+    <motion.div
+      className="sidebar-container"
+      data-state={isOpen ? 'open' : 'closed'}
+      initial="closed"
+      animate={isOpen ? 'open' : 'closed'}
+      variants={variants}
+    >
+      <div className="sidebar">
+        {/* Toggle — pinned top */}
+        <div className="sidebar-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
+        </div>
+
+        {/* Center group — headshot + social + nav, vertically centered */}
+        <div className="sidebar-center">
+          {/* Headshot */}
+          <div className={`sidebar-headshot-wrapper ${isOpen ? '' : 'hidden'}`}>
+            <img
+              src="/headshot.jpg"
+              alt="Mark Buckle"
+              className="sidebar-headshot"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          </div>
+
+          {/* Social icons */}
+          <div className={`sidebar-social ${isOpen ? '' : 'hidden'}`}>
+            <a href="https://github.com/markbuckle" target="_blank" rel="noopener noreferrer">
+              <FaGithub size={16} />
+            </a>
+            <a href="https://www.linkedin.com/in/mark-buckle-146316326/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={16} />
+            </a>
+          </div>
+
+          {/* Nav links */}
+          <nav className="sidebar-nav">
+            {navItems.map((item) => (
+              <SidebarItem key={item.name} {...item} isOpen={isOpen} />
+            ))}
+          </nav>
+        </div>
+
+        {/* Resume download — pinned bottom */}
+        <div className="sidebar-download">
+          <a href="/resume.pdf" download className="sidebar-link">
+            <div className="sidebar-item">
+              <span className="sidebar-item-icon"><FileDown size={18} /></span>
+              {isOpen && (
+                <motion.span
+                  className="sidebar-item-label accent-text"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  Resume
+                </motion.span>
+              )}
+            </div>
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
