@@ -48,7 +48,7 @@ export const Hero = () => {
           I design and build products that bridge technical feasibility with user-centered design.
           Passionate about innovation, cybersecurity, and shipping fast.
         </p>
-        <a href="#design" className="hero-cta btn-trace">
+        <a href="#projects" className="hero-cta btn-trace">
           View my work
           <span style={{ fontSize: '1.1rem' }}>→</span>
           <svg className="trace-svg" aria-hidden="true" focusable="false">

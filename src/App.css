@@ -17,9 +17,11 @@
   --text-tertiary: #666666;
   --text-link: #00e5a0;
 
+  --button-primary: radial-gradient(ellipse at 50% 50%, #fafafaec 45%, #fafafab9 65%, #6e6e6e63 100%);
+
   --accent: #00e5a0;
   --accent-end: #00d4ff;
-  --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-end) 100%);
+  --accent-gradient: (135deg, var(--accent) 0%, var(--accent-end) 100%);
   --accent-dim: rgba(0, 229, 160, 0.12);
   --accent-glow: 0 0 12px rgba(0, 229, 160, 0.35), 0 0 4px rgba(0, 212, 255, 0.2);
   --accent-glow-subtle: rgba(0, 229, 160, 0.06);
@@ -35,6 +37,7 @@
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --radius-2xl: 30px;
 
   --sidebar-width-open: 14rem;
   --sidebar-width-closed: 4rem;
@@ -442,12 +445,16 @@ section {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: var(--text-primary);
+  /* background: var(--text-primary); */
+  background: var(--button-primary);
   color: var(--bg-primary);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.9rem;
   border-radius: var(--radius-xl);
   border: none;
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -888,12 +895,12 @@ section {
 .contact-form button {
   align-self: flex-start;
   padding: 0.7rem 1.75rem;
-  background: var(--text-primary);
+  background: var(--button-primary);
   color: var(--bg-primary);
   font-weight: 600;
   font-size: 0.85rem;
   border: none;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }

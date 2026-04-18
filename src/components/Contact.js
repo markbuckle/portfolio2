@@ -73,7 +73,7 @@ export const Contact = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn-trace">
+          <button type="submit" className="hero-cta btn-trace">
             Send message
             <svg className="trace-svg" aria-hidden="true" focusable="false">
               <defs>
