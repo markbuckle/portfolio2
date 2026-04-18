@@ -138,6 +138,14 @@ section {
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
+.section-title2 {
+  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
 
 .section-subtitle {
   font-size: 1.05rem;
@@ -505,30 +513,26 @@ section {
 /* ============================================================
    ABOUT
    ============================================================ */
-.about-layout {
+.about-bio {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-top: 1.25rem;
+}
+
+.about-details-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-  margin-top: 2rem;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.about-photo {
-  width: 100%;
-  max-width: 280px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-
-.about-text p {
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-  font-size: 0.95rem;
-}
-
-.about-details {
-  margin-top: 2rem;
+.about-detail-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .about-detail-label {
@@ -537,14 +541,14 @@ section {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
 }
 
 .about-detail-value {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -638,19 +642,41 @@ section {
   color: var(--accent);
 }
 
+.case-study-links {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
 .case-study-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-top: 1.25rem;
-  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-primary);
-  transition: color var(--transition-fast);
+  border-radius: var(--radius-sm);
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 .case-study-link:hover {
-  color: var(--accent);
+  background: rgba(0, 229, 160, 0.18);
+  border-color: rgba(0, 229, 160, 0.4);
+}
+
+.case-study-link-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.case-study-link-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
 }
 
 /* ============================================================
@@ -931,7 +957,7 @@ section {
     padding: 4rem 1.5rem;
   }
 
-  .about-layout,
+  .about-details-row,
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 2rem;

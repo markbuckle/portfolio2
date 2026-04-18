@@ -33,8 +33,8 @@ export const Contact = () => {
       <div className="contact-layout">
         <div className="contact-info">
           <p>
-            I'm currently open to product design and full-stack development opportunities.
-            Whether you have a project in mind or just want to say hello, I'd love to hear from you.
+            I'm always open to learning more about product design and full-stack development opportunities.
+            Whether you have a project in mind or just want to learn, I'd love to hear from you.
           </p>
           <div className="contact-social">
             <a href="https://github.com/markbuckle" target="_blank" rel="noopener noreferrer">

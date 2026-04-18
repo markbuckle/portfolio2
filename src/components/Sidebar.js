@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import headshotImg from '../assets/img/headshot.jpg';
 import { HashLink as Link } from 'react-router-hash-link';
 import {
-  Home, User, Palette, Layers, Code2, Mail,
+  Home, User, Layers, Code2, Mail,
   ChevronRight, ChevronLeft, FileDown
 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -11,9 +11,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const navItems = [
   { icon: <Home size={18} />, name: 'Home', to: '#home' },
   { icon: <User size={18} />, name: 'About', to: '#about' },
-  { icon: <Palette size={18} />, name: 'Design', to: '#design' },
-  { icon: <Layers size={18} />, name: 'Skills', to: '#skills' },
   { icon: <Code2 size={18} />, name: 'Projects', to: '#projects' },
+  { icon: <Layers size={18} />, name: 'Skills', to: '#skills' },
   { icon: <Mail size={18} />, name: 'Contact', to: '#contact' },
 ];
 
