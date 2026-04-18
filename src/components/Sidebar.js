@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import headshotImg from '../assets/img/headshot.jpg';
 import { HashLink as Link } from 'react-router-hash-link';
 import {
   Home, User, Palette, Layers, Code2, Mail,
@@ -59,10 +60,9 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
           {/* Headshot */}
           <div className={`sidebar-headshot-wrapper ${isOpen ? '' : 'hidden'}`}>
             <img
-              src="/headshot.jpg"
+              src={headshotImg}
               alt="Mark Buckle"
               className="sidebar-headshot"
-              onError={(e) => { e.target.style.display = 'none'; }}
             />
           </div>
 
@@ -85,7 +85,7 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
         </div>
 
         {/* Resume download — pinned bottom */}
-        <div className="sidebar-download">
+        <div className="sidebar-download" style={{ display: 'none' }}>
           <a href="/resume.pdf" download className="sidebar-link">
             <div className="sidebar-item">
               <span className="sidebar-item-icon"><FileDown size={18} /></span>

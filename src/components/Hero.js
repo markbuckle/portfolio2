@@ -46,7 +46,7 @@ export const Hero = () => {
         </p>
         <p className="hero-description">
           I design and build products that bridge technical feasibility with user-centered design.
-          Passionate about healthcare innovation, cybersecurity, and shipping fast.
+          Passionate about innovation, cybersecurity, and shipping fast.
         </p>
         <a href="#design" className="hero-cta btn-trace">
           View my work
