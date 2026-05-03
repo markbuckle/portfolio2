@@ -7,9 +7,9 @@ const caseStudies = [
     id: 1,
     // tag: 'Product Design · Full-Stack',
     title: 'LifeSync',
-    subtitle: 'Text-to-Calendar Management Web and Mobile Application',
+    subtitle: 'Text-to-Calendar Management Application',
     description:
-      'Designed and built an intelligent calendar management platform that makes booking appointments, events, and meetings easier than ever. Powered by an AI assistant that helps users stay organised like a personal CEO assistant.',
+      'Designed and built an intelligent calendar management platform that makes booking appointments, events, and meetings easier than ever. Powered by an AI assistant that helps users stay organized like a personal CEO assistant. Deployed as a web and IOS application.',
     process: [
       'User Research',
       'Information Architecture',
@@ -18,11 +18,15 @@ const caseStudies = [
       'Design System',
       'High-Fidelity UI',
       'Usability Testing',
+      'System Architecture',
+      'API Design',
       'Frontend Dev',
+      'Backend Dev',
+      'Cloud Deployment',
     ],
-    tools: ['Figma', 'Penpot', 'NanoBanana', 'React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'GraphQL', 'PostgreSQL'],
-    liveUrl: null,
-    gitUrl: null,
+    tools: ['Figma', 'React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'GraphQL', 'PostgreSQL', 'Docker', 'Vercel'],
+    liveUrl: 'https://thelifesync.vercel.app/',
+    gitUrl: 'https://github.com/markbuckle/lifesync',
     image: null,
   },
   {
@@ -39,9 +43,13 @@ const caseStudies = [
       'UI Design',
       'Interactive Dashboards',
       'Onboarding Flow',
+      'Data Pipeline',
+      'OCR Integration',
+      'RAG Architecture',
       'Frontend Dev',
+      'Backend Dev',
     ],
-    tools: ['Figma', 'Penpot', 'NanoBanana', 'Node.js', 'Express', 'MongoDB', 'Plotly.js', 'OpenAI', 'Anthropic Claude'],
+    tools: ['Figma', 'Node.js', 'Express', 'Python', 'MongoDB', 'Plotly.js', 'OpenAI', 'Anthropic Claude', 'Docker'],
     liveUrl: 'https://www.earlyhealthlync.com/',
     gitUrl: null,
     image: null,
@@ -54,14 +62,17 @@ const caseStudies = [
     description:
       'A SaaS platform for collecting, organizing, and acting on product feedback. Built with authentication, subscription billing, and a clean dashboard that helps teams triage and prioritize user insights at scale.',
     process: [
-      'Product Scoping',
+      'Technical Scoping',
+      'System Architecture',
       'UI Design',
+      'API Design',
       'Auth Flow',
       'Billing Integration',
+      'Database Architecture',
       'Frontend Dev',
-      'Database Design',
+      'Cloud Deployment',
     ],
-    tools: ['React', 'Next.js', 'Shadcn UI', 'Clerk', 'Supabase', 'PostgreSQL', 'Stripe'],
+    tools: ['React', 'Next.js', 'TypeScript', 'Shadcn UI', 'Clerk', 'Supabase', 'PostgreSQL', 'Stripe', 'Vercel'],
     liveUrl: 'https://saasdashboard.vercel.app/',
     gitUrl: 'https://github.com/markbuckle/saas-app',
     image: null,
@@ -147,7 +158,7 @@ export const DesignWork = () => {
         <p className="section-label">Projects</p>
         <h2 className="section-title">Things I've Built</h2>
         <p className="section-subtitle">
-          Here are a few of the end-to-end projects I've built spanning product design and full-stack development, from user research and wireframing through to the shipped product.
+          Here are a few of the end-to-end projects I've built spanning product design, full-stack development, and engineering — from user research and system architecture through to the shipped product.
         </p>
       </motion.div>
 

@@ -11,11 +11,11 @@ export const About = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="section-label">About Me</p>
-        <h2 className="section-title2">An engineer and architect who sweats the UX</h2>
+        <h2 className="section-title2">A builder who sweats the UX</h2>
         <p className="about-bio">
-          I'm a developer who designs, builds, and ships fast. With a technical background
-          and a deep passion for next-level user interfaces, I always put myself in the
-          user's shoes when building products.
+          I design, develop and engineer solutions. With a technical background
+          and a mild obsession for next-level user interfaces, I like putting myself in the
+          user's shoes when I build products.
         </p>
       </motion.div>
 

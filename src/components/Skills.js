@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const designSkills = [
-  'Figma', 'Penpot', 'NanoBanana', 'Wireframing', 'Prototyping',
+  'Figma', 'NanoBanana', 'Wireframing', 'Prototyping',
   'Design Systems', 'User Research', 'Usability Testing', 'UI Design',
   'Interaction Design', 'Information Architecture',
 ];
@@ -12,6 +12,12 @@ const devSkills = [
   'Java', 'HTML5', 'CSS3', 'Tailwind CSS',
   'PostgreSQL', 'MongoDB', 'GraphQL', 'FastAPI',
   'AWS', 'Docker', 'Git',
+];
+
+const engineeringSkills = [
+  'Systems Design', 'API Design', 'AI/ML Integration', 'RAG Pipelines',
+  'Data Pipelines', 'Cloud Architecture', 'CI/CD', 'Database Architecture',
+  'Performance Optimization', 'Technical Scoping', 'Agile / Scrum',
 ];
 
 const SkillChip = ({ name, delay }) => (
@@ -53,6 +59,15 @@ export const Skills = () => {
           <p className="skills-group-label">Development</p>
           <div className="skills-grid">
             {devSkills.map((skill, i) => (
+              <SkillChip key={skill} name={skill} delay={i * 0.03} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="skills-group-label">Engineering</p>
+          <div className="skills-grid">
+            {engineeringSkills.map((skill, i) => (
               <SkillChip key={skill} name={skill} delay={i * 0.03} />
             ))}
           </div>
