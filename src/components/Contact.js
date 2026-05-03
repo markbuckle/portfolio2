@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Mail } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -13,9 +14,24 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Integrate with EmailJS or your preferred service
-    setStatus("Message sent! I'll get back to you soon.");
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          user_name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -85,7 +101,25 @@ export const Contact = () => {
               <rect className="trace-rect" x="1.5" y="1.5" rx="26.5" pathLength="600" stroke="url(#contact-trace-grad)" />
             </svg>
           </button>
-          {status && <p style={{ color: 'var(--accent)', fontSize: '0.85rem', marginTop: '0.5rem' }}>{status}</p>}
+          {status === 'sending' && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
+              <motion.span
+                style={{
+                  display: 'inline-block',
+                  width: 16,
+                  height: 16,
+                  borderRadius: '50%',
+                  border: '2px solid rgba(0,229,160,0.2)',
+                  borderTopColor: 'var(--accent)',
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
+              />
+              <span style={{ color: 'var(--accent)', fontSize: '0.85rem' }}>Sending...</span>
+            </div>
+          )}
+          {status === 'success' && <p style={{ color: 'var(--accent)', fontSize: '0.85rem', marginTop: '0.5rem' }}>Message sent! I'll get back to you soon.</p>}
+          {status === 'error' && <p style={{ color: '#ff6b6b', fontSize: '0.85rem', marginTop: '0.5rem' }}>Something went wrong. Please try again.</p>}
         </form>
       </div>
     </div>
