@@ -281,7 +281,7 @@ section {
 
 .sidebar-social a:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--accent-dim);
 }
 
 .sidebar-nav {
@@ -310,7 +310,7 @@ section {
 }
 
 .sidebar-item:hover {
-  color: var(--text-primary);
+  color: var(--accent);
   background: rgba(255, 255, 255, 0.196);
   /* border: 0.5px solid var(--accent); */
   background: var(--accent-dim);
@@ -334,6 +334,36 @@ section {
   opacity: 0;
   width: 0;
   overflow: hidden;
+}
+
+.sidebar-container[data-state="closed"] .sidebar-item {
+  position: relative;
+}
+
+.sidebar-container[data-state="closed"] .sidebar-item::after {
+  content: attr(data-label);
+  position: absolute;
+  left: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hover);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 200;
+}
+
+.sidebar-container[data-state="closed"] .sidebar-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 .sidebar-download {

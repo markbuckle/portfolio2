@@ -18,7 +18,7 @@ const navItems = [
 
 const SidebarItem = ({ icon, name, to, isOpen }) => (
   <Link smooth to={to} className="sidebar-link">
-    <div className="sidebar-item">
+    <div className="sidebar-item" data-label={name}>
       <span className="sidebar-item-icon">{icon}</span>
       {isOpen && (
         <motion.span
